@@ -1,0 +1,1038 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    font-size:15px;
+}
+
+body{
+    overflow-x:hidden;
+    max-width:100%;
+}
+
+:root{
+    --text: #f6e6ec;
+    --background: rgb(118, 28, 28);
+    --primary: #d898b2;
+    --secondary: #7e3b2f;
+    --accent: #bf7553;
+}
+
+
+
+/* BODY/BODY/BODY */
+
+
+
+/* HEaDER/HEaDER/HEaDER */
+
+
+
+.hero-header{
+    width:100%;
+    height:100vh;
+
+    position:relative;
+    overflow:hidden;
+
+    container-type:inline-size;
+}
+
+.hero-header img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position: 60% 65%;
+
+    filter:brightness(0.9);
+}
+
+.hero-header::after{
+    position:absolute;
+    content:'';
+    width:100%;
+    height:20%;
+    bottom: 0;
+    left:0;
+    
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1));
+}
+
+.hero-header h1{
+    position:absolute;
+    left:50%;
+    top:10%;
+    transform: translateX(-50%);
+
+    font-style:italic;
+    font-size: clamp(4rem, 8cqi, 10rem);
+    font-family: 'vend sans';
+
+    color: rgb(255, 255, 255);
+
+    display:flex;
+    align-items:start;
+
+    pointer-events: none;
+}
+
+#absolut{
+    font-size:clamp(2rem, 4cqi, 8rem);
+    font-family: 'vend sans';
+    letter-spacing:normal;
+    line-height:2;
+
+    margin-left: 1rem;
+}
+
+.logo-with-text{
+    position:absolute;
+    top:5%;
+    left: 10rem;
+    transform:translateX(-50%);
+
+    color:white;
+
+    display:flex;
+    align-items: center;
+
+    width:fit-content;
+}
+
+.logo-with-text img{
+    height:3rem;
+}
+
+#koenigsegg{
+    font-size: clamp(2rem, 1.75cqi, 10rem);
+    font-family:'Neographik w00';
+    color: rgb(255, 255, 255);
+
+    text-decoration:none;
+    letter-spacing:0.1rem;
+}
+
+
+/* Main/Main/Main */
+
+
+.simple-description{
+    width:100%;
+    height:fit-content;
+
+    display:flex;
+    justify-content: space-evenly;
+    gap:3cqi;
+
+    padding: clamp(3rem, 5cqi, 50rem);
+
+    container-type: inline-size;
+    background-color:white;
+}
+
+.p-description{
+    display:flex;
+    flex-direction:column;
+    gap:4cqi;
+}
+
+.simple-description p, .simple-description h2{
+    font-family: 'vend sans';
+}
+
+.simple-description p{
+    font-size:clamp(0.8rem, 2.2cqi, 10rem);
+}
+
+.simple-description h2{
+    white-space:nowrap;
+    font-size: clamp(1.2rem, 2.7cqi, 12rem);
+}
+
+
+
+
+.image-description{
+    width:100%;
+    height:100vh;
+    
+    overflow:hidden;
+    container-type: inline-size;
+
+    position:relative;
+}
+
+.image-description img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:50% 70%;
+}
+
+.image-text p{
+    font-family:cabin;
+    font-size: clamp(1rem, 3cqi, 10rem);
+    color: rgb(255, 255, 255);
+    font-weight:bold;
+
+    position:absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+
+    white-space:nowrap;
+}
+
+
+
+
+.detailed-info{
+    background: black;
+    color:white;
+
+    container-type:inline-size;
+    height:fit-content;
+    padding-bottom: 2rem;
+
+    display:flex;
+    justify-content: space-evenly;
+    align-items:center;
+    flex-wrap:wrap;
+
+    position:relative;
+} 
+
+.detailed-info::after{
+    content:'';
+    position: absolute;
+    top: 99%;
+    left:0;
+
+    z-index: 1;
+    height:150px;
+    width:100%;
+    background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+}
+
+.info-accordion{
+    display:flex;
+    flex-direction:column;
+
+    width:max-content;
+    max-width:30%;
+    margin-block: clamp(2rem, 8cqi, 12rem);
+}
+
+.info-accordion label{
+    width:100%;
+    
+    padding:1.5cqi;
+    cursor:pointer;
+    transition: all 0.3s ease-in-out;
+
+    font-family:'vend sans';
+    font-size: clamp(1rem, 2cqi, 10rem);
+    font-weight:light;
+
+    counter-increment:accordion-counter;
+
+    position:relative;
+}
+
+.info-accordion label::after{
+    content: '';
+
+    position:absolute;
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height: clamp(1px, 0.5cqi, 2px);
+
+    background: rgba(255, 255, 255, 0.4);
+    transition: all 0.275s ease-in-out;
+}
+
+.info-accordion label:hover::after, .info-accordion input:checked::after{
+    background-color: rgb(198, 140, 15);
+    width: 100%;
+    filter: brightness(1.2);
+}
+
+.accordion-answer{
+    display:none;
+    padding-block: clamp(2rem, 1cqi, 10rem);
+    max-width:100%;
+
+    font-family:'vend sans';
+    font-size:clamp(0.7rem, 1cqi, 10rem);
+    padding:1.5cqi;
+    margin-left:4cqi;
+
+    transition: display 0.4s ease-in-out;
+}
+
+.info-accordion input:checked + label + .accordion-answer{
+    display:block;
+}
+
+input[type="radio"]{
+    display:none;
+}
+
+.info-accordion label::before{
+    content: counter(accordion-counter) ". ";
+
+    font-size: clamp(1rem, 2cqi, 10rem);
+    font-family:'vend sans';
+    color:white;
+}
+
+
+#nfs{
+    font-family: Goldman;
+    font-size: clamp(1.55rem, 3cqi, 12rem);
+    margin-bottom: clamp(1.5rem, 5cqi, 10rem);
+
+    white-space:nowrap;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns: repeat(3, clamp(5rem, 12cqi, 40rem));
+    grid-auto-rows: clamp(5rem, 12cqi, 40rem);
+    width: 100%;
+    margin-bottom: 7cqi;
+
+    gap: clamp(0.5rem, 1.5cqi, 12rem);
+
+    filter: opacity(0.9) saturate(60%) brightness(1.1);
+}
+
+.info-grid img{
+    object-fit:cover;
+    width:100%;
+    height:100%;
+    filter:opacity(0.85);
+}
+
+.info-grid img:nth-child(1){
+    grid-row: 1/4;
+    grid-column: 1/3;
+}
+
+.info-grid img:nth-child(2){
+    grid-row: 4/5;
+    grid-column: 1/4;
+
+    width:80%;
+    justify-self:end;
+}
+
+.info-grid img:nth-child(3){
+    grid-row: 2/4;
+    grid-column: 3/4;
+
+    height: 85%;
+    align-self:end;
+}
+
+.total-grid{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+    height: 100%;
+}
+
+#es{
+    font-family:goldman;
+    font-size: clamp(2rem, 5cqi, 14rem);
+    margin-block: 5rem;
+
+    align-self: start;
+
+    position:relative;
+}
+
+#es::after{
+    content:'TOP SPEED';
+
+    font-family:goldman;
+    font-size: clamp(2rem, 5cqi, 14rem);
+
+    white-space:nowrap;
+
+    position:absolute;
+    top: 70%;
+    left:40%;
+}
+
+
+
+.image-roll{
+    width:100%;
+    height:400vh;
+    z-index:-5;
+
+    background-image: linear-gradient(rgba(10, 20, 40, 0.85), rgba(10, 20, 40, 0.85)), url(images/fighter-plane.jpg);
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+
+    background-attachment:fixed;
+
+    container-type:inline-size;
+    position:relative;
+
+    display:flex;
+    flex-direction: column;
+    gap: 75vh;
+} 
+
+.text-top h2{
+    font-family: 'vend sans';
+    font-size: clamp(1.5rem, 4.75cqi, 15rem);
+    color: white;
+    padding-inline: 5rem;
+}
+
+.text-top p{
+    font-family:sans-serif;
+    font-size:clamp(1rem, 2cqi, 12rem);
+    color: white;
+    padding-inline: 5rem;
+}
+
+.text-top{
+    display:flex;
+    flex-direction:column;
+    gap: 4rem;
+
+    width:60%;
+    height: 20rem;
+    margin-left:auto;
+    margin-top: 7rem;
+    padding: 3.5cqi;
+
+    animation: scroll-sizer linear;
+    animation-timeline: view(block 65% 0%);
+}
+
+.dfts h2{
+    font-family:'vend sans';
+    font-size: clamp(2rem, 4.5cqi, 15rem);
+    color:white;
+}
+
+.dfts{
+    height: fit-content;
+    width: fit-content;
+    
+    top: 15%;
+    left: 15%;
+    transform: translateX(-25%);
+    z-index:-4;
+
+    position: fixed;
+}
+
+.dfts::after{
+    content:'TOP SPEED';
+    font-family: 'vend sans';
+    font-size: clamp(2rem, 4.5cqi, 15rem);
+    color: white;
+    font-weight:bold;
+
+    position:absolute;
+    top: 100%;
+}
+
+.dfts2{
+    display:none;
+}
+
+@keyframes scroll-sizer{
+    0%{
+        filter: brightness(0.5);
+        transform: scale(0.5);
+    }
+    100%{
+        filter: brightness(1);
+        transform: scale(1);
+    }
+}
+
+
+
+
+.jesko-specs{
+    display:flex;
+    flex-direction:column;
+    gap:4rem;
+
+    padding: 5rem;
+    padding-block: 8rem;
+    width: 100%;
+    height: fit-content;
+}
+
+.grid-specs{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    width: 85%;
+
+    margin-inline: auto;
+}
+
+.specs-title{
+    width: clamp(200px, 85%, 10000px);
+    margin-inline:auto;
+
+    font-family: goldman;
+    font-size: clamp(1rem, 3.5cqi, 12rem);
+    font-weight: bold;
+
+    white-space:nowrap;
+}
+
+#specs{
+    display:block;
+}
+
+.grid-info h2{
+    font-family: 'vend sans';
+    font-size: clamp(2.25rem, 3.5cqi, 12rem);
+
+    flex-basis: 50%;
+
+    position:relative;
+}
+
+.grid-info p{
+    font-family: 'vend sans';
+    font-size: clamp(1rem, 1.5cqi, 10rem);
+}
+
+#LST{
+    font-size: clamp(1rem, 1.5cqi, 10rem);
+    font-family: 'vend sans';
+}
+
+.grid-info a{
+    text-decoration:none;
+    color: black;
+    font-size: clamp(1rem, 1,5cqi, 10rem);
+    font-family: 'vend sans';
+}
+
+.small-units{
+    font-size: clamp(1rem, 1.5cqi, 10rem);
+
+    position:absolute;
+    left: 60%;
+    top: 40%;
+}
+
+.grid-info{
+    display: flex;
+    align-items: baseline;
+    border-bottom: black solid 1px;
+}
+
+.technical-specs{
+    border-bottom: none;
+    border: black 2px solid;
+    border-radius: 0% 30% 0% 30%;
+
+    box-shadow: 5px 5px 20px rgb(86, 80, 80);
+
+    height: fit-content;
+    width: fit-content;
+    padding: 1rem;
+    margin-left:auto;
+
+    transition: ease-in-out 0.2s;
+}
+
+.technical-specs:hover, .technical-specs:focus{
+    transform: scale(1.1);
+}
+
+
+
+.image-storage{
+    width: 100%;
+    height: 60vh;
+
+    overflow-x:auto;
+    display:flex;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.image-storage img{
+    flex: 0 0 60%;
+    aspect-ratio: 16/9;
+
+    scroll-snap-align: start;
+
+    padding-left: 3rem;
+}
+
+.image-storage::-webkit-scrollbar{
+    display:none;
+}
+
+.image-storage::scroll-button(right), .image-storage::scroll-button(left){
+    font-family:'vend sans';
+    font-size: 3rem;
+    color:black;
+
+    border-radius: 0% 30% 0% 30%;
+    border: 1px black solid;
+    background: rgb(255, 255, 255);
+    box-shadow: 5px 5px 15px grey;
+
+    transition: ease-in-out 0.2s;
+
+    padding-inline:1rem;
+    margin-block: 3rem;
+    margin-inline:3rem;
+    cursor:pointer;
+}
+
+.image-storage::scroll-button(right):hover, .image-storage::scroll-button(left):hover{
+    transform: scale(1.05);
+}
+
+.image-storage::scroll-button(right):disabled, .image-storage::scroll-button(left):disabled, 
+.image-storage::scroll-button(right):disabled:hover, .image-storage::scroll-button(left):disabled:hover{
+    filter: opacity(0.5);
+    cursor:auto;
+    transform:scale(1);
+}
+
+.image-storage::scroll-button(right){
+    content:'>';
+    margin-left:-2rem;;
+}
+
+.image-storage::scroll-button(left){
+    content:'<';
+}
+
+
+
+.jejesko-desc{
+    width: 100%;
+    height: fit-content;
+
+    display:flex;
+    justify-content: space-evenly;
+
+    padding-inline: 3rem;
+    padding-block: 6rem;
+}
+
+#smashing{
+    display:block;
+}
+
+.jejesko-desc h2{
+    font-family: 'vend sans';
+    font-size: clamp(2rem, 4cqi, 15rem);
+
+    flex: 0 0 64.7%;
+}
+
+.jejesko-desc p{
+    font-family: 'vend sans';
+    font-size: clamp(1rem, 1.2cqi, 12rem);
+}
+
+
+
+
+
+.image-scrolls{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    grid-auto-rows: 100vh;
+
+    margin-right: auto;
+    text-align:center;
+}
+
+.image-scrolls-children h2{
+    font-size: clamp(2rem, 7cqi, 15rem);
+    font-family:'vend sans';
+    color: white;
+    text-shadow: 5px 5px 15px rgb(0, 0, 0);
+}
+
+.image-scrolls-children:hover{
+    filter: saturate(1.5);
+}
+
+.text-beside-img p{
+    font-size: clamp(0.9rem, 1.25cqi, 15rem);
+    font-family: 'vend sans';
+    color: black;
+    text-align: start;
+}
+
+.text-beside-img a{
+    text-decoration: none;
+    font-family: 'vend sans';
+    color: black;
+    font-size: clamp(0.8rem, 1.2cqi, 12rem);
+
+    border: black 1px solid;
+    border-radius: 30% 0% 30% 0%;
+    box-shadow: 5px 5px 15px rgb(47, 44, 44);
+
+    width: fit-content;
+    padding: 1rem;
+
+    transition: ease-in-out 0.2s;
+}
+
+.text-beside-img a:hover{
+    filter: brightness(0.6);
+    transform: scale(0.9);
+}
+
+.text-beside-img::after{
+    content:'';
+    height: 1px;
+    width: 50%;
+
+    position:absolute;
+    bottom:0;
+    left:0;
+    background-color: black;
+}
+
+.text-beside-img{
+    position: relative;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding-inline: 4rem;
+}
+
+.scroll-image-1{
+    background: url(images/wrc.avif);
+}
+
+.scroll-image-2{
+    background: url(images/glass-jesko.jpg);
+}
+
+.scroll-image-3{
+    background: url(images/running-jesko.jpg);
+}
+
+.scroll-image-3, .scroll-image-2, .scroll-image-1{
+    width: 100%;
+    height: 100%;
+
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    filter: saturate(0.5);
+    transition: ease-in-out 0.2s;
+}
+
+
+
+footer{
+    width: 80%;
+    margin-inline:auto;
+    margin-block:4rem;
+
+    container-type: inline;
+}
+
+footer a{
+    text-decoration:none;
+    color: inherit;
+    line-height:2;
+}
+
+.mtah, .dsccpf, .tsmgo{
+    display:flex;
+    flex-direction:column;
+    align-items:start;
+    justify-content:center;
+
+    font-family:'vend sans';
+    font-size: clamp(0.9rem, 1.75cqi, 15rem);
+
+    order:2;
+}
+
+.dsccpf a:hover, .mtah a:hover{
+    text-shadow: 5px 5px 15px rgb(88, 77, 77);
+    cursor:pointer;
+}
+
+.dsccpf{
+    font-size: clamp(0.7rem, 1.2cqi, 12rem);
+    order: 3;
+}
+.main-link-array{
+    display:flex;
+    justify-content:space-evenly;
+    width: 100%;
+}
+
+.array-media{
+    display:flex;
+    justify-content: space-evenly;
+
+    padding-block:3rem;
+}
+
+.tsmgo{
+    font-size: clamp(2rem, 3cqi, 16rem);
+    order:1;
+    line-height:1;
+}
+
+.upper-footer-portion{
+    position:relative;
+}
+
+.upper-footer-portion::after{
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+
+    height:1px;
+    width:70%;
+    background-color:black;
+}
+
+
+
+.lower-footer-portion{
+    width: 70%;
+    margin-inline:auto;
+}
+
+.lower-footer-portion p{
+    font-size:0.75rem;
+    font-family: 'vend sans';
+
+    padding-block:2rem;
+}
+
+
+
+
+
+
+
+@media (max-width: 800px){
+
+.tsmgo{
+    display:none;
+}
+
+.image-scrolls-children{
+    position:relative;
+}
+
+.image-scrolls-children h2{
+    height:fit-content;
+    padding:0;
+    white-space:nowrap;
+    
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+#lst2{
+    white-space:normal;
+}
+
+.image-scrolls{
+    grid-template-columns: 1fr;
+    grid-auto-rows: 25rem;
+}
+
+.jejesko-desc{
+    flex-direction:column;
+    gap:3rem;
+}
+
+.image-storage img{
+    width: 96vw;
+
+    padding-left: 1rem;
+}
+
+.image-storage{
+    height: 35vh;
+}
+
+.image-storage::scroll-button(left){
+    margin-left:1rem;
+}
+
+
+.specs-title{
+    width: 87vw;
+}
+
+.jesko-specs{
+    padding:1.25rem;
+    gap:2rem;
+    padding-block:5rem;
+}
+
+.grid-specs{
+    grid-template-columns: 1fr;
+
+    width: 87vw;
+}
+
+.small-units{
+    left: 65%;
+}
+
+
+.hero-header h1{
+    position:absolute;
+    left:50%;
+    top:40%;
+    transform: translate(-50%, -50%);
+
+    font-style:italic;
+    font-size: clamp(4rem, 8cqi, 10rem);
+
+    color: rgb(255, 255, 255);
+
+    display:flex;
+    align-items:start;
+}
+
+.logo-with-text{
+    left:50%;
+    transform:translateX(-60%);
+}
+
+.simple-description{
+    display:flex;
+    flex-direction:column;
+}
+
+.hero-header::after{
+    background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.55), rgba(0,0,0,1));
+}
+
+.image-description{
+    height:80vh;
+}
+
+
+
+.detailed-info{
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-evenly;
+
+    height:fit-content;
+}
+
+.info-accordion{
+    width: 80vw;
+    max-width:80vw;
+}
+
+#es{
+    margin-block:8cqi;
+    margin-bottom: 10cqi;
+}
+
+.info-grid{
+    grid-template-columns: repeat(3, clamp(6rem, 15cqi, 30rem));
+    grid-auto-rows: clamp(6rem, 15cqi, 30rem);
+}
+
+
+
+.dfts2{
+    font-family: 'vend sans';
+    font-size: 2rem;
+
+    margin-top: 10rem;
+    padding-inline:2rem;
+    display:inline-block;
+
+    animation: barely-noticeable linear forwards;
+    animation-timeline: view(block 65% 0%);
+
+    text-align:center;
+}
+
+.dfts2 h2{
+    color: white;
+}
+
+@keyframes barely-noticeable{
+    0%{
+        transform: translateY(200%);
+        filter: opacity(0);
+    }
+    100%{
+        filter: opacity(1);
+        transform: translateY(-200%);
+    }
+}
+
+.dfts{
+    display:none;
+}
+
+.text-top{
+    width:100%;
+    margin-top:2rem;
+    z-index:-4;
+
+    animation-timeline: view(block 100% 0%);
+}
+
+.text-top h2, .text-top p{
+    padding-inline:2rem;
+    text-align:center;
+}
+
+.image-roll{
+    gap:25vh;
+    align-items:center;
+    height: 335vh;
+}
+
+#top-text-top{
+    margin-top: 8rem;
+}
+}
