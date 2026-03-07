@@ -92,8 +92,7 @@ body{
 .logo-with-text{
     position:absolute;
     top:5%;
-    left: 10rem;
-    transform:translateX(-50%);
+    left: 5%;
 
     color:white;
 
@@ -353,7 +352,7 @@ input[type="radio"]{
 #es{
     font-family:goldman;
     font-size: clamp(2rem, 5cqi, 14rem);
-    margin-block: 5rem;
+    margin-block: 5rem 7rem;
 
     align-self: start;
 
@@ -377,14 +376,13 @@ input[type="radio"]{
 
 .image-roll{
     width:100%;
-    height:400vh;
+    height:fit-content;
     z-index:-5;
 
     background-image: linear-gradient(rgba(10, 20, 40, 0.85), rgba(10, 20, 40, 0.85)), url(images/fighter-plane.jpg);
     background-size:cover;
     background-position:center;
     background-repeat: no-repeat;
-
     background-attachment:fixed;
 
     container-type:inline-size;
@@ -392,7 +390,9 @@ input[type="radio"]{
 
     display:flex;
     flex-direction: column;
-    gap: 75vh;
+    gap: 60vh;
+
+    padding-bottom:70rem;
 } 
 
 .text-top h2{
@@ -559,6 +559,8 @@ input[type="radio"]{
     margin-left:auto;
 
     transition: ease-in-out 0.2s;
+
+    font-size: clamp(0.85rem, 2cqi, 10rem);
 }
 
 .technical-specs:hover, .technical-specs:focus{
@@ -593,7 +595,7 @@ input[type="radio"]{
 
 .image-storage::scroll-button(right), .image-storage::scroll-button(left){
     font-family:'vend sans';
-    font-size: 3rem;
+    font-size: clamp(3rem, 5cqi, 20rem);
     color:black;
 
     border-radius: 0% 30% 0% 30%;
@@ -655,7 +657,7 @@ input[type="radio"]{
 
 .jejesko-desc p{
     font-family: 'vend sans';
-    font-size: clamp(1rem, 1.2cqi, 12rem);
+    font-size: clamp(1.2rem, 1.2cqi, 12rem);
 }
 
 
@@ -671,12 +673,23 @@ input[type="radio"]{
     text-align:center;
 }
 
+.image-scrolls-children{position:relative;}
+
 .image-scrolls-children h2{
     font-size: clamp(2rem, 7cqi, 15rem);
     font-family:'vend sans';
     color: white;
     text-shadow: 5px 5px 15px rgb(0, 0, 0);
+
+    white-space:nowrap;
+    height:fit-content;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
+
+#lst2{white-space:normal;}
 
 .image-scrolls-children:hover{
     filter: saturate(1.5);
@@ -837,7 +850,7 @@ footer a{
 }
 
 .lower-footer-portion p{
-    font-size:0.75rem;
+    font-size:clamp(1rem, 1.5cqi, 10rem);
     font-family: 'vend sans';
 
     padding-block:2rem;
@@ -853,25 +866,6 @@ footer a{
 
 .tsmgo{
     display:none;
-}
-
-.image-scrolls-children{
-    position:relative;
-}
-
-.image-scrolls-children h2{
-    height:fit-content;
-    padding:0;
-    white-space:nowrap;
-    
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-}
-
-#lst2{
-    white-space:normal;
 }
 
 .image-scrolls{
